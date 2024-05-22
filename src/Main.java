@@ -46,6 +46,10 @@ public class Main {
                     break;
                 case 8:
                     checarUsersNoEvento();
+                    break;
+                case 9: 
+                    deletarAlgo();
+                    break;
                 case 0:
                     sair = true;
             }
@@ -83,7 +87,6 @@ public class Main {
         int vagas = scanner.nextInt();
         Evento evento = new Evento(nome, vagas, valor, data);
         eventosList.adicionarEvento(evento);
-
     }
 
     public static void checarEventos() {
@@ -108,6 +111,7 @@ public class Main {
         int saldo = scanner.nextInt();
         User user = new User(nome, idade, genero, saldo);
         usuarios.cadastrarUser(user);
+        eventoList.cadastrarUser(user);
     }
 
     public static void checarUsers(){
@@ -119,6 +123,7 @@ public class Main {
         int ind = scanner.nextInt();
         usuarios.editarUser(ind);
     }
+
     public static void cadastraUserNoEvento(){ // ACHO QUE NÃO ESTÁ FUNCIONANDO TAMBÉM
         System.out.print("Índice do User: ");
         int userIndice = scanner.nextInt();
@@ -134,5 +139,27 @@ public class Main {
         int eventoIndice = scanner.nextInt();
         Evento evento = eventosList.Eventos.get(eventoIndice);
         evento.listarParticipantes();
+    }
+
+    public static void deletarAlgo() {
+        System.out.println("===========================");
+        System.out.println("SELECIONE PARA DELETAR");
+        System.out.print("| 1 Evento |");
+        System.out.print(" 2 Usuario |");
+        System.out.println("\n===========================");
+        System.out.print("Opção: ");
+        int opcao = scanner.nextInt();
+        if (opcao == 1) {
+            System.out.print("Insira o índice do evento à deletar: ");
+            int ind = scanner.nextInt();
+            eventosList.excluirEvento(ind);
+        } else if (opcao == 2) {
+            System.out.print("Insira o índice do usuário à deletar: ");
+            int ind = scanner.nextInt();
+            usuarios.excluirUsuario(ind);
+        } else {
+            System.out.println("Informação invalida. Tente novamente.");
+            deletarAlgo();
+        }
     }
 }

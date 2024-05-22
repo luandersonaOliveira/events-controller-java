@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UsuariosContainer {
-    public ArrayList<User> usuariosCadastrados = new ArrayList<User>();
+    public  ArrayList<User> usuariosCadastrados = new ArrayList<User>();
 
     public void cadastrarUser(User user){
         usuariosCadastrados.add(user);
@@ -21,7 +21,7 @@ public class UsuariosContainer {
     public void editarUser(int ind){
         Scanner scanner = new Scanner(System.in);
         if(ind < 0 || ind >= usuariosCadastrados.size()){
-            System.out.println("Índice Inválido, tente novamente");
+            System.out.println("Índice Inválido. Tente novamente.");
             return;
         }
         User user = usuariosCadastrados.get(ind);
@@ -42,4 +42,16 @@ public class UsuariosContainer {
         user.setIdade(novaIdade);
         System.out.println("\nUsuário "+user.getNome()+" atualizado com sucesso!");
     }
+
+    public void excluirUsuario(int ind) {
+        if (ind < 0 || ind >= usuariosCadastrados.size()) {
+            System.out.println("Índice Inválido. Tente novamente.");
+            return;
+        }
+        User user = usuariosCadastrados.get(ind);
+        user.status(ind);
+        usuariosCadastrados.remove(ind);
+        System.out.println("\nUsuário " + user.getNome() + " deletado com sucesso!");
+    }
+
 }

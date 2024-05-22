@@ -12,7 +12,8 @@ public class Evento {
 
     // CONTAINERS
 
-    ArrayList<User> participantes = new ArrayList<>();
+    ArrayList<User> participantes = new ArrayList<User>();
+    ArrayList<Evento> evento = new ArrayList<>();
 
     // CONSTRUTOR
 
@@ -43,7 +44,6 @@ public class Evento {
 
     // GETTERS
 
-
     public String getNome() {
         return nome;
     }
@@ -62,23 +62,58 @@ public class Evento {
 
     // MÉTODOS
 
-    public void eventoInfos(int indexEvento){
-        System.out.println("Evento "+indexEvento+":");
-        System.out.print("| Evento: "+this.getNome()+" | ");
-        System.out.print("Data: "+this.getData()+" | ");
-        System.out.print("Vagas: "+this.getLimiteVagas()+" | ");
-        System.out.print("Valor: "+this.getValor()+" |\n");
+    public void eventoInfos(int indexEvento) {
+        System.out.println("Evento " + indexEvento + ":");
+        System.out.print("| Evento: " + this.getNome() + " | ");
+        System.out.print("Data: " + this.getData() + " | ");
+        System.out.print("Vagas: " + this.getLimiteVagas() + " | ");
+        System.out.print("Valor: " + this.getValor() + " |\n");
         System.out.println("-------------------------------------------------------------------------");
     }
-
-    public void listarParticipantes(){
-        System.out.println(participantes.size()); // NÃO MOSTRA OS PARTICIPANTES, SÓ FINALIZA O CÓDIGO
-        return;
-    }
-
     // CADASTRAR USER NO EVENTO
 
-    public void cadastrarUser(User user, Evento eventoIndice){
+    public void cadastrarUser(User user, Evento eventoIndice) {
         participantes.add(user); // POSSÍVEL ERRO
+        evento.add(eventoIndice);
+    }
+
+    public void listarParticipantes() {
+
+        if (participantes.isEmpty()) {
+            System.out.println("\nParticipantes vazio");
+            System.out.println("Limite de vagas: " + this.getLimiteVagas());
+            System.out.println("Tamanho da lista de participantes: " + participantes.size());
+            System.out.println("evento.size()" + evento.size());
+            System.out.println("evento.isEmpty()" + evento.isEmpty());
+        } else if (this.getLimiteVagas() <= evento.size()) {
+            System.out.println("this.getLimiteVagas()" + this.getLimiteVagas());
+            System.out.println("evento.size()" + evento.size());
+            System.out.println("Limite máximo atingido");
+        } else {
+            this.setLimiteVagas(getLimiteVagas() - 1);
+            System.out.println("Vaga preenchida. Restam " + getLimiteVagas() + " vagas.");
+        }
+        /*
+         * System.out.println(participantes.size()); // NÃO MOSTRA OS PARTICIPANTES, SÓ
+         * FINALIZA O CÓDIGO
+         * return;
+         */
+    }
+
+    public void listarParticipante() {
+        evento.get(limiteVagas);
+        if (participantes.isEmpty()) { // Verifica se participantes esta vazio(True)
+            System.out.println("Participantes vazio");
+            System.out.println("Limite de vagas: " + this.getLimiteVagas());
+            System.out.println("Tamanho da lista de participantes: " + participantes.size());
+            // Verifica o tamanho da lista
+
+        } else if (this.getLimiteVagas() <= evento.size()) { // Verifica se o limiteVagas for igual e menor do que 0
+            System.out.println("Limite máximo atingido");
+
+        } else { // O limiteVagas vai reduzindo
+            this.setLimiteVagas(getLimiteVagas() - 1);
+            System.out.println("Vaga preenchida. Restam " + getLimiteVagas() + " vagas.");
+        }
     }
 }
