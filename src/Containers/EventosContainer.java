@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EventosContainer {
-    ArrayList<Evento> Eventos = new ArrayList<Evento>();
+    public static ArrayList<Evento> Eventos = new ArrayList<Evento>();
 
     public void adicionarEvento(Evento evento){
         Eventos.add(evento);
