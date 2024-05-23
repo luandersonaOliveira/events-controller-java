@@ -29,14 +29,15 @@ public class User extends Pessoa{
     // MÉTODOS
 
     public void status(int indice) {
+        System.out.println("-------------------------------------------------------------------------------");
         System.out.print("Usuário "+indice+"\n");
         System.out.print("| Nome: " + this.getNome());
         System.out.print(" | Idade: " + this.getIdade());
         System.out.print(" | Genero: "+this.getGenero());
         System.out.print(" | Saldo: "+this.getSaldo());
         System.out.print(" | Tem arma: "+(this.getTemArma()?"Sim":"Não"));
-        System.out.print(" | Tem bebida: "+(this.getTemBebida()?"Sim |\n":"Não |\n"));
-        System.out.println("-------------------------------------------------------------------------------");
+        System.out.print(" | Tem bebida: "+(this.getTemBebida()?"Sim |":"Não |"));
+        System.out.println("\n-------------------------------------------------------------------------------");
     }
 
     // SETTERS

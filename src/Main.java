@@ -13,7 +13,7 @@ public class Main {
 
     //CONTAINERS
 
-    private static final Evento eventoList = new Evento("", 0, 0, "");
+    private static final Evento eventoList = new Evento("", 0, 0, "", 0);
     private static final EventosContainer eventosList = new EventosContainer();
     private static final UsuariosContainer usuarios = new UsuariosContainer();
 
@@ -46,6 +46,7 @@ public class Main {
                     break;
                 case 8:
                     checarUsersNoEvento();
+                    break;
                 case 0:
                     sair = true;
             }
@@ -81,7 +82,9 @@ public class Main {
         int valor = scanner.nextInt();
         System.out.print("Vagas: ");
         int vagas = scanner.nextInt();
-        Evento evento = new Evento(nome, vagas, valor, data);
+        System.out.print("Idade Mínima: ");
+        int idadeMin = scanner.nextInt();
+        Evento evento = new Evento(nome, vagas, valor, data, idadeMin);
         eventosList.adicionarEvento(evento);
 
     }
@@ -119,20 +122,20 @@ public class Main {
         int ind = scanner.nextInt();
         usuarios.editarUser(ind);
     }
-    public static void cadastraUserNoEvento(){ // ACHO QUE NÃO ESTÁ FUNCIONANDO TAMBÉM
+    public static void cadastraUserNoEvento(){
         System.out.print("Índice do User: ");
         int userIndice = scanner.nextInt();
         System.out.print("Índice do Evento: ");
         int eventoIndice = scanner.nextInt();
         User userSelected = usuarios.usuariosCadastrados.get(userIndice);
         Evento eventoSelecionado = eventosList.Eventos.get(eventoIndice);
-        eventoList.cadastrarUser(userSelected, eventoSelecionado);
+        eventoList.cadastrarUser(userSelected, eventoSelecionado, userIndice);
     }
 
-    public static void checarUsersNoEvento(){ // CONSERTAR
+    public static void checarUsersNoEvento(){
         System.out.print("Índice do Evento: ");
         int eventoIndice = scanner.nextInt();
         Evento evento = eventosList.Eventos.get(eventoIndice);
-        evento.listarParticipantes();
+        evento.listarParticipantes(evento);
     }
 }
