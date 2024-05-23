@@ -42,9 +42,8 @@ public class User extends Pessoa{
     // SETTERS
 
 
-    public int setSaldo(int saldo) {
+    public void setSaldo(int saldo) {
         this.saldo = saldo;
-        return saldo;
     }
 
     public void setTemArma(){

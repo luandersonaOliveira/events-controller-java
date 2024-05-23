@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EventosContainer {
-    public  ArrayList<Evento> Eventos = new ArrayList<Evento>();
+    ArrayList<Evento> Eventos = new ArrayList<Evento>();
 
     public void adicionarEvento(Evento evento){
         Eventos.add(evento);
@@ -48,16 +48,5 @@ public class EventosContainer {
         evento.setValor(novoValor);
 
         System.out.println("\nEvento "+evento.getNome()+" atualizado com sucesso!");
-    }
-
-    public void excluirEvento(int ind) {
-        if (ind < 0 || ind >= Eventos.size()) {
-            System.out.println("Índice inválido. Tente novamente.");
-            return;
-        }
-        Evento evento = Eventos.get(ind);
-        evento.eventoInfos(ind);
-        Eventos.remove(ind);
-        System.out.println("\nEvento " + evento.getNome() + " deletado com sucesso!");
     }
 }
