@@ -13,7 +13,7 @@ public class Main {
 
     //CONTAINERS
 
-    private static final Evento eventoList = new Evento("", 0, 0, "");
+    private static final Evento eventolist = new Evento("", 0, 0, "");
     private static final EventosContainer eventosList = new EventosContainer();
     private static final UsuariosContainer usuarios = new UsuariosContainer();
 
@@ -42,14 +42,10 @@ public class Main {
                     editarUser();
                     break;
                 case 7:
-                    cadastraUserNoEvento();
+                    // CRIAR FUNÇÃO PARA CADASTRAR USUÁRIO EM UM EVENTO
                     break;
                 case 8:
-                    checarUsersNoEvento();
-                    break;
-                case 9: 
-                    deletarAlgo();
-                    break;
+                    // CRIAR FUNÇÃO PARA DELETAR EVENTOU OU USUÁRIO
                 case 0:
                     sair = true;
             }
@@ -59,20 +55,16 @@ public class Main {
     public static void menuPrincipal() {
         System.out.println("==========================");
         System.out.println("SELECIONE SUA OPÇÃO");
-        System.out.print("| 1 para criar evento |");
-        System.out.print(" 2 para checar eventos |");
-        System.out.print(" 3 para editar um evento |");
-        System.out.print("\n--------------------------------");
-        System.out.print("\n| 4 para cadastrar usuário |");
-        System.out.print(" 5 para ver usuarios cadastrados |");
-        System.out.print(" 6 para editar um usuário |");
-        System.out.print("\n--------------------------------");
-        System.out.print("\n| 7 para cadastrar usuário em um evento |");
-        System.out.print(" 8 para checar usuários em um evento |");
-        System.out.print(" 9 para deletar algo |");
-        System.out.print("\n--------------------------------");
-        System.out.print("\n0 para sair do menu");
-        System.out.println("\n===========================");
+        System.out.println("1 para criar evento");
+        System.out.println("2 para checar eventos");
+        System.out.println("3 para editar um evento");
+        System.out.println("4 para cadastrar usuário");
+        System.out.println("5 para ver usuarios cadastrados");
+        System.out.println("6 para editar um usuário");
+        System.out.println("7 para cadastrar usuário em um evento");
+        System.out.println("8 para apagar algo");
+        System.out.println("0 para sair do menu");
+        System.out.println("===========================");
         System.out.print("Opção: ");
     }
 
@@ -87,6 +79,7 @@ public class Main {
         int vagas = scanner.nextInt();
         Evento evento = new Evento(nome, vagas, valor, data);
         eventosList.adicionarEvento(evento);
+
     }
 
     public static void checarEventos() {
@@ -121,44 +114,5 @@ public class Main {
         System.out.println("Insira o índice do usuário à editar: ");
         int ind = scanner.nextInt();
         usuarios.editarUser(ind);
-    }
-
-    public static void cadastraUserNoEvento(){ // ACHO QUE NÃO ESTÁ FUNCIONANDO TAMBÉM
-        System.out.print("Índice do User: ");
-        int userIndice = scanner.nextInt();
-        System.out.print("Índice do Evento: ");
-        int eventoIndice = scanner.nextInt();
-        User userSelected = usuarios.usuariosCadastrados.get(userIndice);
-        Evento eventoSelecionado = eventosList.Eventos.get(eventoIndice);
-        eventoList.cadastrarUser(userSelected, eventoSelecionado);
-    }
-
-    public static void checarUsersNoEvento(){ // CONSERTAR
-        System.out.print("Índice do Evento: ");
-        int eventoIndice = scanner.nextInt();
-        Evento evento = eventosList.Eventos.get(eventoIndice);
-        evento.listarParticipantes();
-    }
-
-    public static void deletarAlgo() {
-        System.out.println("===========================");
-        System.out.println("SELECIONE PARA DELETAR");
-        System.out.print("| 1 Evento |");
-        System.out.print(" 2 Usuario |");
-        System.out.println("\n===========================");
-        System.out.print("Opção: ");
-        int opcao = scanner.nextInt();
-        if (opcao == 1) {
-            System.out.print("Insira o índice do evento à deletar: ");
-            int ind = scanner.nextInt();
-            eventosList.excluirEvento(ind);
-        } else if (opcao == 2) {
-            System.out.print("Insira o índice do usuário à deletar: ");
-            int ind = scanner.nextInt();
-            usuarios.excluirUsuario(ind);
-        } else {
-            System.out.println("Informação invalida. Tente novamente.");
-            deletarAlgo();
-        }
     }
 }

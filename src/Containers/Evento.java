@@ -10,9 +10,9 @@ public class Evento {
     private int valor;
     private String data;
 
-    // CONTAINERS
+    private ArrayList<User> participantes = new ArrayList<User>(); // CONTAINER DE PARTICIPANTES
 
-    ArrayList<User> participantes = new ArrayList<User>();
+    public void adicionarUser(User user){ participantes.add(user); } // FUNÇÃO PARA ADICIONAR NOVOS PARTICIPANTES AO CONTAINER
 
     // CONSTRUTOR
 
@@ -22,6 +22,7 @@ public class Evento {
         this.setValor(valor);
         this.setData(data);
     }
+
 
     // SETTERS
 
@@ -43,6 +44,7 @@ public class Evento {
 
     // GETTERS
 
+
     public String getNome() {
         return nome;
     }
@@ -61,25 +63,13 @@ public class Evento {
 
     // MÉTODOS
 
-    public void eventoInfos(int indexEvento) {
-        System.out.println("Evento " + indexEvento + ":");
-        System.out.print("| Evento: " + this.getNome() + " | ");
-        System.out.print("Data: " + this.getData() + " | ");
-        System.out.print("Vagas: " + this.getLimiteVagas() + " | ");
-        System.out.print("Valor: " + this.getValor() + " |\n");
+    public void eventoInfos(int indexEvento){
+        System.out.println("Evento "+indexEvento+":");
+        System.out.print("| Evento: "+this.getNome()+" | ");
+        System.out.print("Data: "+this.getData()+" | ");
+        System.out.print("Vagas: "+this.getLimiteVagas()+" | ");
+        System.out.print("Valor: "+this.getValor()+" |\n");
         System.out.println("-------------------------------------------------------------------------");
-    }
-    // CADASTRAR USER NO EVENTO
 
-    public void cadastrarUser(User user, Evento eventoIndice) {
-        participantes.add(user); // POSSÍVEL ERRO
-    }
-
-    public void listarParticipantes() {
-
-    }
-
-    public void listarParticipante() {
-        
     }
 }
