@@ -6,18 +6,11 @@ import java.util.ArrayList;
 
 public class Evento {
     private String nome;
-    private int limiteVagas = 1000;
+    private int limiteVagas;
     private int valor;
     private String data;
-<<<<<<< HEAD
     private int idadeMinima;
     private ArrayList<User> participantes;
-=======
-
-    private ArrayList<User> participantes = new ArrayList<User>(); // CONTAINER DE PARTICIPANTES
-
-    public void adicionarUser(User user){ participantes.add(user); } // FUNÇÃO PARA ADICIONAR NOVOS PARTICIPANTES AO CONTAINER
->>>>>>> d0fe9b22de679e618ae0f4d9a10603fa4856ad62
 
     // CONSTRUTOR
 
@@ -77,13 +70,14 @@ public class Evento {
     // MÉTODOS
 
     public void eventoInfos(int indexEvento){
-        System.out.println("Evento "+indexEvento+":");
+        System.out.println("Evento "+indexEvento+": ");
         System.out.print("| Evento: "+this.getNome()+" | ");
         System.out.print("Data: "+this.getData()+" | ");
         System.out.print("Vagas: "+this.getLimiteVagas()+" | ");
         System.out.print("Valor: "+this.getValor()+" | ");
         System.out.print("Idade Mínima: "+this.getIdadeMinima()+" |\n");
         System.out.println("-------------------------------------------------------------------------");
+    }
 
     public void listarParticipantes(Evento evento){
         for(int i = 0; i < evento.participantes.size(); i++){

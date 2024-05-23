@@ -13,7 +13,7 @@ public class Main {
 
     //CONTAINERS
 
-    private static final Evento eventoList = new Evento("", 0, 0, "", );
+    private static final Evento eventoList = new Evento("", 0, 0, "", 0);
     private static final EventosContainer eventosList = new EventosContainer();
     private static final UsuariosContainer usuarios = new UsuariosContainer();
 
