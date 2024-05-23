@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UsuariosContainer {
-    public ArrayList<User> usuariosCadastrados = new ArrayList<User>();
+    ArrayList<User> usuariosCadastrados = new ArrayList<User>();
 
     public void cadastrarUser(User user){
         usuariosCadastrados.add(user);
