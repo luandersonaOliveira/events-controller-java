@@ -47,6 +47,9 @@ public class Main {
                 case 8:
                     checarUsersNoEvento();
                     break;
+                case 9: 
+                    excluirAlgo();
+                    break;
                 case 0:
                     sair = true;
             }
@@ -94,7 +97,7 @@ public class Main {
     }
 
     public static void editarEvento(){
-        System.out.print("Insira o índice do evento à editar: ");
+        System.out.print("\nInsira o índice do evento à editar: ");
         int ind = scanner.nextInt();
         eventosList.editarEvento(ind);
     }
@@ -137,5 +140,26 @@ public class Main {
         int eventoIndice = scanner.nextInt();
         Evento evento = eventosList.Eventos.get(eventoIndice);
         evento.listarParticipantes(evento);
+    }
+
+    public static void excluirAlgo() {
+        System.out.println("===========================");
+        System.out.println("SELECIONE SUA OPÇÃO PARA DELETAR");
+        System.out.print("| 1 Evento |");
+        System.out.print(" 2 Usuário |");
+        System.out.println("\n===========================");
+        System.out.print("Opção: ");
+        int opcao = scanner.nextInt();
+        if (opcao == 1) {
+            System.out.print("Insira o índice do evento à deletar: ");
+            int ind = scanner.nextInt();
+            eventosList.excluirEvento(ind);
+        } else if (opcao == 2) {
+            System.out.println("Insira o índice do usuário à deletar: ");
+            int ind = scanner.nextInt();
+            usuarios.excluirUsuario(ind);
+        } else {
+            System.out.println("Índice inválido. Tente novamente.");
+        }
     }
 }
