@@ -111,7 +111,6 @@ public class Main {
         int saldo = scanner.nextInt();
         User user = new User(nome, idade, genero, saldo);
         usuarios.cadastrarUser(user);
-        eventoList.cadastrarUser(user);
     }
 
     public static void checarUsers(){
