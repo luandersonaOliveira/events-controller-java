@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EventosContainer {
+cadastro-user-evento-erro
     public ArrayList<Evento> Eventos = new ArrayList<Evento>();
+    ArrayList<Evento> Eventos = new ArrayList<Evento>();
 
     public void adicionarEvento(Evento evento){
         Eventos.add(evento);
