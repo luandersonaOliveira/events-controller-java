@@ -27,7 +27,7 @@ public class UsuariosContainer {
         User user = usuariosCadastrados.get(ind);
         System.out.println("Informações do usuário selecionado:");
         user.status(ind);
-        System.out.print("\nDigite as novas informações do usuário");
+        System.out.println("\nDigite as novas informações do usuário: ");
         System.out.print("Nome: ");
         String novoNome = scanner.nextLine();
         System.out.print("Gênero: ");
@@ -41,5 +41,16 @@ public class UsuariosContainer {
         user.setGenero(novoGenero);
         user.setIdade(novaIdade);
         System.out.println("\nUsuário "+user.getNome()+" atualizado com sucesso!");
+    }
+
+    public void excluirUsuario(int ind) {
+        if (ind < 0 || ind >= usuariosCadastrados.size()) {
+            System.out.println("Índice inválido. Tente novamente.");
+            return;
+        }
+        User user = usuariosCadastrados.get(ind);
+        user.status(ind);
+        usuariosCadastrados.remove(ind);
+        System.out.println("\nUsuário " + user.getNome() + " deletado com sucesso!");
     }
 }
