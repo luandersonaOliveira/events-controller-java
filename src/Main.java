@@ -11,7 +11,7 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static boolean sair = false;
 
-    //CONTAINERS
+    // CONTAINERS
 
     private static final Evento eventoList = new Evento("", 0, 0, "", 0);
     private static final EventosContainer eventosList = new EventosContainer();
@@ -22,7 +22,7 @@ public class Main {
             menuPrincipal();
             int opcao = scanner.nextInt();
             scanner.nextLine();
-            switch (opcao){
+            switch (opcao) {
                 case 1:
                     criarEvento();
                     break;
@@ -47,7 +47,7 @@ public class Main {
                 case 8:
                     checarUsersNoEvento();
                     break;
-                case 9: 
+                case 9:
                     excluirAlgo();
                     break;
                 case 0:
@@ -96,7 +96,7 @@ public class Main {
         eventosList.mostrarInfosEventos();
     }
 
-    public static void editarEvento(){
+    public static void editarEvento() {
         System.out.print("\nInsira o índice do evento à editar: ");
         int ind = scanner.nextInt();
         eventosList.editarEvento(ind);
@@ -116,16 +116,17 @@ public class Main {
         usuarios.cadastrarUser(user);
     }
 
-    public static void checarUsers(){
+    public static void checarUsers() {
         usuarios.mostrarUsuarios();
     }
 
-    public static void editarUser(){
+    public static void editarUser() {
         System.out.println("Insira o índice do usuário à editar: ");
         int ind = scanner.nextInt();
         usuarios.editarUser(ind);
     }
-    public static void cadastraUserNoEvento(){
+
+    public static void cadastraUserNoEvento() {
         System.out.print("Índice do User: ");
         int userIndice = scanner.nextInt();
         System.out.print("Índice do Evento: ");
@@ -135,7 +136,7 @@ public class Main {
         eventoList.cadastrarUser(userSelected, eventoSelecionado, userIndice);
     }
 
-    public static void checarUsersNoEvento(){
+    public static void checarUsersNoEvento() {
         System.out.print("Índice do Evento: ");
         int eventoIndice = scanner.nextInt();
         Evento evento = eventosList.Eventos.get(eventoIndice);
