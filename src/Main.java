@@ -17,7 +17,11 @@ public class Main {
     private static final EventosContainer eventosList = new EventosContainer();
     private static final UsuariosContainer usuarios = new UsuariosContainer();
 
+    // METODOS
+
     public static void main(String[] args) {
+        
+        // OPÇÕES DO MENU
         do {
             menuPrincipal();
             int opcao = scanner.nextInt();
@@ -48,7 +52,7 @@ public class Main {
                     checarUsersNoEvento();
                     break;
                 case 9:
-                    excluirAlgo();
+                deletarAlgo();
                     break;
                 case 0:
                     sair = true;
@@ -56,6 +60,7 @@ public class Main {
         } while (!sair);
     }
 
+    // MENU
     public static void menuPrincipal() {
         System.out.println("==========================");
         System.out.println("SELECIONE SUA OPÇÃO");
@@ -76,6 +81,7 @@ public class Main {
         System.out.print("Opção: ");
     }
 
+    //CRIA EVENTOS
     public static void criarEvento() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
@@ -89,19 +95,21 @@ public class Main {
         int idadeMin = scanner.nextInt();
         Evento evento = new Evento(nome, vagas, valor, data, idadeMin);
         eventosList.adicionarEvento(evento);
-
     }
 
+    // LISTA DE EVENTOS
     public static void checarEventos() {
         eventosList.mostrarInfosEventos();
     }
 
+    // EDITAR EVENTOS
     public static void editarEvento() {
         System.out.print("\nInsira o índice do evento à editar: ");
         int ind = scanner.nextInt();
         eventosList.editarEvento(ind);
     }
 
+    // CRIA USER
     public static void cadastrarUser() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
@@ -116,16 +124,19 @@ public class Main {
         usuarios.cadastrarUser(user);
     }
 
+    // LISTA USER
     public static void checarUsers() {
         usuarios.mostrarUsuarios();
     }
 
+    // EDITAR USER
     public static void editarUser() {
         System.out.println("Insira o índice do usuário à editar: ");
         int ind = scanner.nextInt();
         usuarios.editarUser(ind);
     }
 
+    // CADASTRA USERS NOS EVENTOS
     public static void cadastraUserNoEvento() {
         System.out.print("Índice do User: ");
         int userIndice = scanner.nextInt();
@@ -136,6 +147,7 @@ public class Main {
         eventoList.cadastrarUser(userSelected, eventoSelecionado, userIndice);
     }
 
+    // LISTA DE USERS NOS EVENTOS
     public static void checarUsersNoEvento() {
         System.out.print("Índice do Evento: ");
         int eventoIndice = scanner.nextInt();
@@ -143,22 +155,22 @@ public class Main {
         evento.listarParticipantes(evento);
     }
 
-    public static void excluirAlgo() {
+    // DELETA EVENTOS OU USERS
+    public static void deletarAlgo() {
         System.out.println("===========================");
         System.out.println("SELECIONE SUA OPÇÃO PARA DELETAR");
-        System.out.print("| 1 Evento |");
-        System.out.print(" 2 Usuário |");
+        System.out.print("| 1 Evento | 2 Usuário |");
         System.out.println("\n===========================");
         System.out.print("Opção: ");
         int opcao = scanner.nextInt();
         if (opcao == 1) {
             System.out.print("Insira o índice do evento à deletar: ");
             int ind = scanner.nextInt();
-            eventosList.excluirEvento(ind);
+            eventosList.deletarEvento(ind);
         } else if (opcao == 2) {
             System.out.println("Insira o índice do usuário à deletar: ");
             int ind = scanner.nextInt();
-            usuarios.excluirUsuario(ind);
+            usuarios.deletarUsuario(ind);
         } else {
             System.out.println("Índice inválido. Tente novamente.");
         }

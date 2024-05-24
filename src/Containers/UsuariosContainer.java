@@ -18,6 +18,7 @@ public class UsuariosContainer {
         }
     }
 
+    // EDITAR USER
     public void editarUser(int ind){
         Scanner scanner = new Scanner(System.in);
         if(ind < 0 || ind >= usuariosCadastrados.size()){
@@ -43,7 +44,8 @@ public class UsuariosContainer {
         System.out.println("\nUsuário "+user.getNome()+" atualizado com sucesso!");
     }
 
-    public void excluirUsuario(int ind) {
+    // DELETAR USUARIOS
+    public void deletarUsuario(int ind) {
         if (ind < 0 || ind >= usuariosCadastrados.size()) {
             System.out.println("Índice inválido. Tente novamente.");
             return;

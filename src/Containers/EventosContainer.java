@@ -16,6 +16,7 @@ public class EventosContainer {
         }
     }
 
+    // EDITAR EVENTOS
     public void editarEvento(int ind){
         Scanner scanner = new Scanner(System.in);
 
@@ -50,7 +51,8 @@ public class EventosContainer {
         System.out.println("\nEvento "+evento.getNome()+" atualizado com sucesso!");
     }
 
-    public void excluirEvento(int ind) {
+    // DELETAR EVENTOS
+    public void deletarEvento(int ind) {
         if (ind < 0 || ind >= Eventos.size()) {
             System.out.println("Índice inválido. Tente novamente.");
             return;
