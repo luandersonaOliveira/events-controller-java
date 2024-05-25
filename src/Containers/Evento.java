@@ -23,14 +23,6 @@ public class Evento {
         this.participantes = new ArrayList<>(this.limiteVagas);
     }
 
-    public Evento (String nome, String local){
-
-    }
-
-    public Evento (String nome, String local, String data){
-        
-    }
-
     // SETTERS
 
     public void setNome(String nome) {
@@ -122,9 +114,5 @@ public class Evento {
         }else{
             System.out.println("Infelizmente "+evento.getNome()+" está cheio.");
         }
-    }
-
-    public void cadastrarUser(User user, int userIndice){
-
     }
 }

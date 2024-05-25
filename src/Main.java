@@ -52,7 +52,7 @@ public class Main {
                     checarUsersNoEvento();
                     break;
                 case 9:
-                deletarAlgo();
+                    deletarAlgo();
                     break;
                 case 0:
                     sair = true;
