@@ -9,32 +9,33 @@ abstract class Pessoa {
 
     // SETTERS
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
-    public void setIsAdm(String isAdm){
-        if(isAdm.equals("Sim")){
+
+    public void setIsAdm(String isAdm) {
+        if (isAdm.equals("Sim")) {
             this.isAdm = true;
-        }
-        else if(isAdm.equals("Não")){
+        } else if (isAdm.equals("Não")) {
             this.isAdm = false;
-        }
-        else{
+        } else {
             System.out.println("Iválido");
         }
     }
-    public void setNome(String nome){
+
+    public void setNome(String nome) {
         this.nome = nome;
     }
-    public void setIdade(int idade){
+
+    public void setIdade(int idade) {
         this.idade = idade;
     }
-    public void setGenero(String genero){
+
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 
     // GETTERS
-
 
     public int getId() {
         return id;

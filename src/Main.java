@@ -1,6 +1,7 @@
 import Containers.Evento;
 import Containers.EventosContainer;
 import Containers.UsuariosContainer;
+import Entities.Ingresso;
 import Entities.User;
 import jdk.jfr.Event;
 
@@ -11,18 +12,23 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static boolean sair = false;
 
-    //CONTAINERS
+    // CONTAINERS
 
     private static final Evento eventoList = new Evento("", 0, 0, "", 0);
+    private static final Ingresso ingresso = new Ingresso(null, 0, 0, null, 0);
     private static final EventosContainer eventosList = new EventosContainer();
     private static final UsuariosContainer usuarios = new UsuariosContainer();
 
+    // METODOS
+
     public static void main(String[] args) {
+        
+        // OPÇÕES DO MENU
         do {
             menuPrincipal();
             int opcao = scanner.nextInt();
             scanner.nextLine();
-            switch (opcao){
+            switch (opcao) {
                 case 1:
                     criarEvento();
                     break;
@@ -47,8 +53,11 @@ public class Main {
                 case 8:
                     checarUsersNoEvento();
                     break;
-                case 9: 
-                    excluirAlgo();
+                case 9:
+                    deletarAlgo();
+                    break;
+                case 10: 
+                    ingressos();
                     break;
                 case 0:
                     sair = true;
@@ -56,6 +65,7 @@ public class Main {
         } while (!sair);
     }
 
+    // MENU
     public static void menuPrincipal() {
         System.out.println("==========================");
         System.out.println("SELECIONE SUA OPÇÃO");
@@ -69,13 +79,14 @@ public class Main {
         System.out.print("\n--------------------------------");
         System.out.print("\n| 7 para cadastrar usuário em um evento |");
         System.out.print(" 8 para checar usuários em um evento |");
-        System.out.print(" 9 para deletar algo |");
+        System.out.print(" 9 para deletar algo | 10 para usar ingresso |");
         System.out.print("\n--------------------------------");
         System.out.print("\n0 para sair do menu");
         System.out.println("\n===========================");
         System.out.print("Opção: ");
     }
 
+    //CRIA EVENTOS
     public static void criarEvento() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
@@ -89,19 +100,21 @@ public class Main {
         int idadeMin = scanner.nextInt();
         Evento evento = new Evento(nome, vagas, valor, data, idadeMin);
         eventosList.adicionarEvento(evento);
-
     }
 
+    // LISTA DE EVENTOS
     public static void checarEventos() {
         eventosList.mostrarInfosEventos();
     }
 
-    public static void editarEvento(){
+    // EDITAR EVENTOS
+    public static void editarEvento() {
         System.out.print("\nInsira o índice do evento à editar: ");
         int ind = scanner.nextInt();
         eventosList.editarEvento(ind);
     }
 
+    // CRIA USER
     public static void cadastrarUser() {
         System.out.print("Nome: ");
         String nome = scanner.nextLine();
@@ -116,16 +129,20 @@ public class Main {
         usuarios.cadastrarUser(user);
     }
 
-    public static void checarUsers(){
+    // LISTA USER
+    public static void checarUsers() {
         usuarios.mostrarUsuarios();
     }
 
-    public static void editarUser(){
+    // EDITAR USER
+    public static void editarUser() {
         System.out.println("Insira o índice do usuário à editar: ");
         int ind = scanner.nextInt();
         usuarios.editarUser(ind);
     }
-    public static void cadastraUserNoEvento(){
+
+    // CADASTRA USERS NOS EVENTOS
+    public static void cadastraUserNoEvento() {
         System.out.print("Índice do User: ");
         int userIndice = scanner.nextInt();
         System.out.print("Índice do Evento: ");
@@ -135,31 +152,37 @@ public class Main {
         eventoList.cadastrarUser(userSelected, eventoSelecionado, userIndice);
     }
 
-    public static void checarUsersNoEvento(){
+    // LISTA DE USERS NOS EVENTOS
+    public static void checarUsersNoEvento() {
         System.out.print("Índice do Evento: ");
         int eventoIndice = scanner.nextInt();
         Evento evento = eventosList.Eventos.get(eventoIndice);
         evento.listarParticipantes(evento);
     }
 
-    public static void excluirAlgo() {
+    // DELETA EVENTOS OU USERS
+    public static void deletarAlgo() {
         System.out.println("===========================");
         System.out.println("SELECIONE SUA OPÇÃO PARA DELETAR");
-        System.out.print("| 1 Evento |");
-        System.out.print(" 2 Usuário |");
+        System.out.print("| 1 Evento | 2 Usuário |");
         System.out.println("\n===========================");
         System.out.print("Opção: ");
         int opcao = scanner.nextInt();
         if (opcao == 1) {
             System.out.print("Insira o índice do evento à deletar: ");
             int ind = scanner.nextInt();
-            eventosList.excluirEvento(ind);
+            eventosList.deletarEvento(ind);
         } else if (opcao == 2) {
             System.out.println("Insira o índice do usuário à deletar: ");
             int ind = scanner.nextInt();
-            usuarios.excluirUsuario(ind);
+            usuarios.deletarUsuario(ind);
         } else {
             System.out.println("Índice inválido. Tente novamente.");
         }
     }
+
+    public static void ingressos(){
+        ingresso.status();
+    }
+
 }

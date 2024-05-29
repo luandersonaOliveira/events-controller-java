@@ -14,7 +14,7 @@ public class Evento {
 
     // CONSTRUTOR
 
-    public Evento(String nome, int vagas, int valor, String data, int idadeMin) {
+    public Evento (String nome, int vagas, int valor, String data, int idadeMin) {
         this.setNome(nome);
         this.setLimiteVagas(vagas);
         this.setValor(valor);
@@ -86,7 +86,6 @@ public class Evento {
     }
 
     // CADASTRAR USER NO EVENTO
-
     public void cadastrarUser(User user, Evento evento, int userIndice){
         if(evento.getLimiteVagas()>0){
             if(evento.participantes.contains(user)){
