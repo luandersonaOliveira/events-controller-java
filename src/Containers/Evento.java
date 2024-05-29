@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Evento {
     private String nome;
-    private int limiteVagas = 1000;
+    private int limiteVagas;
     private int valor;
     private String data;
     private int idadeMinima;
@@ -22,6 +22,7 @@ public class Evento {
         this.setIdadeMinima(idadeMin);
         this.participantes = new ArrayList<>(this.limiteVagas);
     }
+
 
     // SETTERS
 
@@ -69,7 +70,7 @@ public class Evento {
     // MÉTODOS
 
     public void eventoInfos(int indexEvento){
-        System.out.println("Evento "+indexEvento+":");
+        System.out.println("Evento "+indexEvento+": ");
         System.out.print("| Evento: "+this.getNome()+" | ");
         System.out.print("Data: "+this.getData()+" | ");
         System.out.print("Vagas: "+this.getLimiteVagas()+" | ");
