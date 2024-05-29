@@ -1,6 +1,7 @@
 import Containers.Evento;
 import Containers.EventosContainer;
 import Containers.UsuariosContainer;
+import Entities.Ingresso;
 import Entities.User;
 import jdk.jfr.Event;
 
@@ -14,6 +15,7 @@ public class Main {
     // CONTAINERS
 
     private static final Evento eventoList = new Evento("", 0, 0, "", 0);
+    private static final Ingresso ingresso = new Ingresso(null, 0, 0, null, 0);
     private static final EventosContainer eventosList = new EventosContainer();
     private static final UsuariosContainer usuarios = new UsuariosContainer();
 
@@ -54,6 +56,9 @@ public class Main {
                 case 9:
                     deletarAlgo();
                     break;
+                case 10: 
+                    ingressos();
+                    break;
                 case 0:
                     sair = true;
             }
@@ -74,7 +79,7 @@ public class Main {
         System.out.print("\n--------------------------------");
         System.out.print("\n| 7 para cadastrar usuário em um evento |");
         System.out.print(" 8 para checar usuários em um evento |");
-        System.out.print(" 9 para deletar algo |");
+        System.out.print(" 9 para deletar algo | 10 para usar ingresso |");
         System.out.print("\n--------------------------------");
         System.out.print("\n0 para sair do menu");
         System.out.println("\n===========================");
@@ -175,4 +180,9 @@ public class Main {
             System.out.println("Índice inválido. Tente novamente.");
         }
     }
+
+    public static void ingressos(){
+        ingresso.status();
+    }
+
 }
